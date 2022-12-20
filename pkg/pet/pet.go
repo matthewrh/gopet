@@ -22,44 +22,44 @@ type Pet struct {
 }
 
 const (
-	// Threshold_Life_Min      : Min level of life
-	//                         : Life = 0 is dead
+	// Threshold_Life_Min          : Min level of life
+	//                             : Life = 0 is dead
 	Threshold_Life_Min = 0
-	// Threshold_Life_Max      : Max level of life
-	//                         : Life = 100 is max
+	// Threshold_Life_Max          : Max level of life
+	//                             : Life = 100 is max
 	Threshold_Life_Max = 100
 
-	// Threshold_Hunger_Min    : Min level of hunger
-	//                         : Hunger = 0 is min
+	// Threshold_Hunger_Min        : Min level of hunger
+	//                             : Hunger = 0 is min
 	Threshold_Hunger_Min = 0
-	// Threshold_Hunger_Hungry : Min level of hunger before hungry
-	//                         : Hunger > 50 is hungry
+	// Threshold_Hunger_Hungry     : Min level of hunger before hungry
+	//                             : Hunger > 50 is hungry
 	Threshold_Hunger_Hungry = 50
-	// Threshold_Hunger_Starving : Min level of hunger before starving
-	//                           : Hunger > 75 is starving
+	// Threshold_Hunger_Starving   : Min level of hunger before starving
+	//                             : Hunger > 75 is starving
 	Threshold_Hunger_Starving = 75
-	// Threshold_Hunger_Max    : Max level of hunger
-	//                         : Hunger = 100 is max
+	// Threshold_Hunger_Max        : Max level of hunger
+	//                             : Hunger = 100 is max
 	Threshold_Hunger_Max = 100
 
-	// Threshold_Happiness_Min : Min level of hapiness
-	//                         : Happiness = 0 is dead
+	// Threshold_Happiness_Min     : Min level of hapiness
+	//                             : Happiness = 0 is dead
 	Threshold_Happiness_Min = 0
-	// Threshold_Happiness_Sad : Min level of hapiness to be happy
-	//                         : Happiness < 25 is sad
+	// Threshold_Happiness_Sad     : Min level of hapiness to be happy
+	//                             : Happiness < 25 is sad
 	Threshold_Happiness_Sad = 25
-	// Threshold_Happiness_Max : Max level of happiness
-	//                         : Happiness = 100 is max
+	// Threshold_Happiness_Max     : Max level of happiness
+	//                             : Happiness = 100 is max
 	Threshold_Happiness_Max = 50
 
-	// Threshold_Fatigue_Min   : Min level of fatigue
-	//                         : Fatigue = 0 is min
+	// Threshold_Fatigue_Min       : Min level of fatigue
+	//                             : Fatigue = 0 is min
 	Threshold_Fatigue_Min = 0
-	// Threshold_Fatigue_Tired : Max level of fatigue before sleeping
-	//                         : Fatigue > 90 is tired
+	// Threshold_Fatigue_Tired     : Max level of fatigue before sleeping
+	//                             : Fatigue > 90 is tired
 	Threshold_Fatigue_Tired = 90
-	// Threshold_Fatigue_Max   : Max level of fatigue
-	//                         : Fatigue = 100 is max
+	// Threshold_Fatigue_Max       : Max level of fatigue
+	//                             : Fatigue = 100 is max
 	Threshold_Fatigue_Max = 100
 )
 
@@ -104,58 +104,58 @@ func (p *Pet) Status() {
 	fmt.Println("")
 }
 
-func (pet *Pet) Update() string {
+func (p *Pet) Update() string {
 	var statuses []string
 
-	if pet.IsAlive() {
-		pet.IncreaseHunger(1)
-		pet.DecreaseHappiness(1)
-		pet.IncreaseFatigue(1)
+	if p.IsAlive() {
+		p.IncreaseHunger(1)
+		p.DecreaseHappiness(1)
+		p.IncreaseFatigue(1)
 
-		if pet.IsSleeping {
-			pet.DecreaseFatigue(5)
-			pet.IncreaseLife(1)
+		if p.IsSleeping {
+			p.DecreaseFatigue(10)
+			p.IncreaseLife(1)
 		}
 
-		if pet.HungerStatus() == status.Starving.String() {
-			pet.DecreaseLife(5)
-			pet.IncreaseHunger(5)
+		if p.HungerStatus() == status.Starving.String() {
+			p.DecreaseLife(2)
+			p.IncreaseHunger(3)
 			statuses = append(statuses, status.Starving.String())
-		} else if pet.HungerStatus() == status.Hungry.String() {
-			pet.DecreaseLife(1)
-			pet.IncreaseHunger(2)
+		} else if p.HungerStatus() == status.Hungry.String() {
+			p.DecreaseLife(1)
+			p.IncreaseHunger(2)
 			statuses = append(statuses, status.Hungry.String())
-		} else if pet.HungerStatus() == status.Full.String() {
+		} else if p.HungerStatus() == status.Full.String() {
 			statuses = append(statuses, status.Full.String())
 		}
 
-		if pet.HappinessStatus() == status.Sad.String() {
-			pet.DecreaseLife(1)
+		if p.HappinessStatus() == status.Sad.String() {
+			p.DecreaseLife(1)
 			statuses = append(statuses, status.Sad.String())
-		} else if pet.HappinessStatus() == status.Happy.String() {
+		} else if p.HappinessStatus() == status.Happy.String() {
 			statuses = append(statuses, status.Happy.String())
 		}
 
-		if pet.FatigueStatus() == status.Tired.String() {
-			pet.DecreaseLife(1)
+		if p.FatigueStatus() == status.Tired.String() {
+			p.DecreaseLife(1)
 			statuses = append(statuses, status.Tired.String())
-		} else if pet.FatigueStatus() == status.Rested.String() {
+		} else if p.FatigueStatus() == status.Rested.String() {
 			statuses = append(statuses, status.Rested.String())
 		}
 
-		if !pet.IsDirty {
-			pet.RandomizeDirty()
+		if !p.IsDirty {
+			p.RandomizeDirty()
 		} else {
-			pet.DecreaseHappiness(5)
+			p.DecreaseHappiness(5)
 		}
 
-		if pet.IsDirty {
+		if p.IsDirty {
 			statuses = append(statuses, status.Dirty.String())
 		} else {
 			statuses = append(statuses, status.Clean.String())
 		}
 
-		if !pet.IsAlive() {
+		if !p.IsAlive() {
 			statuses = append(statuses, status.Dead.String())
 		}
 	} else {
@@ -173,16 +173,26 @@ func (p *Pet) IsAlive() bool {
 }
 
 func (p *Pet) Feed() {
+	if p.IsSleeping {
+		p.WakeUp()
+	}
 	p.DecreaseHunger(5)
 	fmt.Println(p.Name, "eats a yummy snack!")
 }
 
 func (p *Pet) Play() {
+	if p.IsSleeping {
+		p.WakeUp()
+	}
 	p.IncreaseHappiness(5)
 	fmt.Println(p.Name, "plays and has fun!")
 }
 
 func (p *Pet) Sleep() {
+	if p.IsSleeping {
+		fmt.Println(p.Name, "is already sleeping!")
+		return
+	}
 	p.IsSleeping = true
 	fmt.Println(p.Name, "is sleeping...")
 }
@@ -192,16 +202,22 @@ func (p *Pet) WakeUp() {
 	fmt.Println(p.Name, "wakes up!")
 }
 
-func (p *Pet) Clean() {
+func (p *Pet) Clean() string {
+	if p.IsSleeping {
+		p.WakeUp()
+	}
 	p.IsDirty = false
 	if rand.Intn(100) < 10 {
 		fmt.Println(p.Name, "was given a bath, but they didn't like it...")
 		p.DecreaseHappiness(15)
+		return "-"
 	} else if rand.Intn(100) > 90 {
 		fmt.Println(p.Name, "was given a bath, and they loved it!")
 		p.IncreaseHappiness(5)
+		return "+"
 	} else {
 		fmt.Println(p.Name, "was given a bath!")
+		return ""
 	}
 }
 
