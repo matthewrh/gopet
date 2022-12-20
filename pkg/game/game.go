@@ -82,7 +82,7 @@ func (g *Game) LogState() {
 					g.UpdatePetState(petState.Sad)
 				}
 			} else {
-				if g.petState != petState.Sleeping && g.currentInteractionTimestamp == 0 {
+				if g.petState != petState.Sleeping && g.currentInteractionTimestamp == 0 && g.petState != petState.Normal {
 					g.UpdatePetState(petState.Normal)
 				}
 			}
