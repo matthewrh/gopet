@@ -43,7 +43,11 @@ func (g *Game) Create(p *pet.Pet) {
 	g.currentInteraction = ""
 	g.currentInteractionTimestamp = 0
 	g.petStatePrev = petState.Normal
-	g.petState = petState.Normal
+	if p.IsSleeping {
+		g.petState = petState.Sleeping
+	} else {
+		g.petState = petState.Normal
+	}
 	g.currentStatusImage = images.GetImages(g.petState)
 	g.currentStatusImageTimestamp = int(time.Now().Unix())
 	g.pet = p
