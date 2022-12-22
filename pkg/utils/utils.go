@@ -2,7 +2,7 @@ package utils
 
 import (
 	"encoding/json"
-	"gopet/pkg/pet"
+	"github.com/matthewrh/gopet/pkg/pet"
 	"io/ioutil"
 )
 

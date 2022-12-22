@@ -3,7 +3,7 @@ package pet
 import (
 	"encoding/json"
 	"fmt"
-	"gopet/pkg/status"
+	"github.com/matthewrh/gopet/pkg/status"
 	"io/ioutil"
 	"math/rand"
 	"strings"

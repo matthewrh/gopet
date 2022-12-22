@@ -1,6 +1,4 @@
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
-github.com/andlabs/ui v0.0.0-20200610043537-70a69d6ae31e h1:wSQCJiig/QkoUnpvelSPbLiZNWvh2yMqQTQvIQqSUkU=
-github.com/andlabs/ui v0.0.0-20200610043537-70a69d6ae31e/go.mod h1:5G2EjwzgZUPnnReoKvPWVneT8APYbyKkihDVAHUi0II=
 github.com/charmbracelet/lipgloss v0.6.0 h1:1StyZB9vBSOyuZxQUcUwGr17JmojPNm87inij9N3wJY=
 github.com/charmbracelet/lipgloss v0.6.0/go.mod h1:tHh2wr34xcHjC2HCXIlGSG1jaDF0S0atAUvBMP6Ppuk=
 github.com/disintegration/imaging v1.6.2 h1:w1LecBlG2Lnp8B3jk5zSuNqd7b4DXhcjwek1ei82L+c=

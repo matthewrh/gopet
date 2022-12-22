@@ -1,9 +1,8 @@
-module gopet
+module github.com/matthewrh/gopet
 
 go 1.19
 
 require (
-	github.com/andlabs/ui v0.0.0-20200610043537-70a69d6ae31e
 	github.com/charmbracelet/lipgloss v0.6.0
 	github.com/disintegration/imaging v1.6.2
 	github.com/hajimehoshi/ebiten/v2 v2.4.15

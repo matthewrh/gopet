@@ -4,7 +4,7 @@ import (
 	"container/ring"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
-	"gopet/pkg/petState"
+	"github.com/matthewrh/gopet/pkg/petState"
 )
 
 var Tired1, _, _ = ebitenutil.NewImageFromFile("images/sad_1.png")

@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"gopet/pkg/utils"
-	"gopet/pkg/game"
-	"gopet/pkg/pet"
-	"log"
 	"github.com/hajimehoshi/ebiten/v2"
+	"github.com/matthewrh/gopet/pkg/game"
+	"github.com/matthewrh/gopet/pkg/pet"
+	"github.com/matthewrh/gopet/pkg/utils"
+	"log"
+	"os"
 )
 
 func main() {
